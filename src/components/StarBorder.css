@@ -1,0 +1,53 @@
+.star-border-container {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    border: none;
+    background: #1a1a1a;
+    /* Default background */
+    z-index: 0;
+    border-radius: 8px;
+    /* Match typical button radius */
+}
+
+.inner-content {
+    position: relative;
+    z-index: 10;
+    background: #1a1a1a;
+    /* Should match container bg */
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.border-gradient-bottom,
+.border-gradient-top {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 150%;
+    padding-bottom: 150%;
+    /* Make it square */
+    transform: translate(-50%, -50%);
+    animation: star-rotate linear infinite;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.border-gradient-top {
+    animation-delay: -3s;
+    /* Half of default 6s to be opposite */
+}
+
+@keyframes star-rotate {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}

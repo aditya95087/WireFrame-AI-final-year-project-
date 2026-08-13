@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+:root {
+  --color-background: #07070A;
+  --color-accent: #2A0F3A;
+  --color-highlight: #8A2BE2;
+  --font-sans: 'Inter', sans-serif;
+  --font-heading: 'Poppins', sans-serif;
+}
+
+@theme {
+  --color-background: var(--color-background);
+  --color-accent: var(--color-accent);
+  --color-highlight: var(--color-highlight);
+  --font-sans: var(--font-sans);
+  --font-heading: var(--font-heading);
+}
+
+@layer base {
+  body {
+    background-color: var(--color-background);
+    color: white;
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+}
+
+@layer utilities {
+  /* Global Purple Gradient Scrollbar */
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #07070A;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #8A2BE2, #4B0082);
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to bottom, #9b4deb, #5c0cad);
+  }
+  
+  /* Maintain specific utility classes */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
